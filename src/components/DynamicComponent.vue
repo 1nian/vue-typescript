@@ -9,9 +9,10 @@
 <script setup lang='ts'>
 // 动态组件
 
-import { ref, reactive,markRaw,shallowRef } from 'vue' 
+import { ref, reactive,markRaw,shallowRef, defineAsyncComponent } from 'vue' 
 import BuyCarVue from './BuyCar.vue';
-import HelloWorldVue from './HelloWorld.vue';
+
+const AsyncComponent = defineAsyncComponent(() => import('./AsyncComponent.vue'))
 
 const com_name = shallowRef(BuyCarVue)
 
@@ -23,8 +24,8 @@ const tablist = [
     com:markRaw(BuyCarVue)
   },
   {
-    name:"Hello 案例",
-    com:markRaw(HelloWorldVue)
+    name:"异步组件",
+    com:markRaw(AsyncComponent)
   }
 ] 
 
