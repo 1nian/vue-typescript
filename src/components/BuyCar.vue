@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in data" :key="item.name">
+          <tr v-for="(item,index) in carStore.carList" :key="item.name">
             <td>{{item.name}}</td>
             <td>{{item.num}}</td>
             <td>{{item.price}}</td>
@@ -18,12 +18,13 @@
           </tr>
         </tbody>
       </table>
-    
+    <button @click="reset">重置</button>
     </div>
 </template>
 
 <script setup lang='ts'>
 import { ref, reactive } from 'vue'
+import {useCarStore} from '../store/car'
 
 type Shop = {
   name:string,
@@ -31,26 +32,15 @@ type Shop = {
   price:number
 }
 
-const data = reactive<Shop[]>([
-  {
-    name:"name1",
-    num:1,
-    price:100
-  },
-  {
-    name:"name2",
-    num:2,
-    price:200
-  },
-  {
-    name:"name3",
-    num:3,
-    price:300
-  }
-])
+const carStore = useCarStore()
+
 
 const del = (index:number) => {
-  data.splice(index,1)
+  carStore.carList.splice(index,1)
+}
+
+const reset = () => {
+  carStore.$reset()
 }
 </script>
 
