@@ -1,12 +1,12 @@
 <template>
     <div class="content">
-        <DynamicComponentVue></DynamicComponentVue>
+        <router-view></router-view>
     </div>
 </template>
 
 <script setup lang='ts'>
 import { ref, reactive } from 'vue' 
-import DynamicComponentVue from '../../components/DynamicComponent.vue';
+// import DynamicComponentVue from '../../components/DynamicComponent.vue';
 
 
 
