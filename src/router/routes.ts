@@ -14,5 +14,10 @@ export const routes = [
     path:'/async',
     meta:{title:"异步组件"},
     component: () => import('../components/AsyncComponent.vue')
+  },
+  {
+    path:'/form',
+    meta:{title:"表单组件"},
+    component: () => import('../components/FormComponent.vue')
   }
 ]
