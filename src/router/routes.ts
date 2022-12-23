@@ -1,23 +1,17 @@
 export const routes = [
   {
     path:'/',
-    meta:{title:"动态组件"},
-    component: () => import('../components/DynamicComponent.vue')
+    meta:{title:"经营决策中心"},
+    component: () => import('../views/business/Index.vue')
   },
   {
-    path:'/car',
-    meta:{title:"购物车组件"},
-    component: () => import('../components/BuyCar.vue'),
-    children:[]
+    path:'/production',
+    meta:{title:"生产运营中心"},
+    component: () => import('../views/production/Index.vue'),
   },
   {
-    path:'/async',
-    meta:{title:"异步组件"},
-    component: () => import('../components/AsyncComponent.vue')
-  },
-  {
-    path:'/form',
-    meta:{title:"表单组件"},
-    component: () => import('../components/FormComponent.vue')
+    path:'/park',
+    meta:{title:"园区运营中心"},
+    component: () => import('../views/park/Index.vue')
   }
 ]

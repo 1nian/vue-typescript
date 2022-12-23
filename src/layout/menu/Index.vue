@@ -1,10 +1,10 @@
 <template>
     <div class="menu">
-        <div class="menu-item" v-for="item in routes" :key="item.path" @click="changePath(item.path)">
-             <div :class="isActive(item.path)">{{item.meta.title}}</div>
-             <template v-if="item?.children && item.children?.length">
-                <layout-menu :treeList="item?.children"></layout-menu>
-            </template>
+        <div class="menu-item" v-for="(item,index) in routes" :key="item.path" @click="changePath(item.path)">
+             <div :class="['default',isActive(item.path)]">
+                <img :src="imgList[index]" alt="">
+                {{item.meta.title}} 
+            </div>
         </div>
     </div>
 </template>
@@ -12,11 +12,17 @@
 
 
 <script setup lang='ts'>
-// 递归组件
-
 import { ref, reactive ,computed} from 'vue' 
 import {routes} from '../../router/routes'
 import { useRouter,useRoute } from 'vue-router';
+
+import bottom1 from '../../assets/1.png'
+import bottom2 from '../../assets/2.png'
+import bottom3 from '../../assets/3.png'
+
+const imgList = reactive([
+    bottom1,bottom2,bottom3
+])
 
 const router = useRouter()
 
@@ -48,14 +54,25 @@ export default {
 
 <style scoped lang="scss">
 .menu{
-    width: 18.75rem;
-    height: 100%;
+    width: 100%;
+    height: 1.65rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .menu-item{
-        width: 80%;
-        padding-left: 10px;
-        box-sizing: border-box;
+        width: 100%;
+        font-size: .2rem;
+        .default{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width: .8rem;
+                height: .8rem;
+            }
+        }
         .active{
-            color:#ff6700 ;
+            color:#D73D41 ;
         }
         div{
             cursor: pointer;

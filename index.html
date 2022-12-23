@@ -10,4 +10,37 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
+
+  <script>
+    // rem 转换
+    (function(win,doc){
+      if(!win.addEventListener) return;
+      // 设置字体函数
+      function setFont() {
+        let html = document.documentElement;
+
+        // 设计稿宽度
+        let k = 750;
+
+        let fontSize = '';
+        // 转换字体大小
+        if(html.clientWidth>=750){
+          fontSize =  100 + 'px'
+        }else{
+          fontSize = (html.clientWidth / k) * 100 + 'px'
+        }
+        
+        // 设置字体大小
+        html.style.fontSize = fontSize;
+      }
+
+      setFont()
+      setTimeout(() => setFont(), 300)
+
+      // 设置时间监听
+      doc.addEventListener('DOMContentLoaded',setFont,false)
+      doc.addEventListener('resize',setFont,false)
+      doc.addEventListener('load',setFont,false)
+    }(window,document))
+  </script>
 </html>

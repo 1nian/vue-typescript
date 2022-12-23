@@ -13,10 +13,5 @@ import { ref, reactive } from 'vue'
 </script>
 
 <style scoped>
-.content{
-    flex: 1;
-    margin: 20px;
-    border: 1px solid #ff6700;
-    overflow: auto;
-}
+.content{}
 </style>
