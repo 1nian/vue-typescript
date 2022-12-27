@@ -18,7 +18,7 @@ import { ref, reactive } from 'vue'
 
 
 interface Props {
-  list: Array<any> ,
+  list: any[] ,
 }
 
 const props = withDefaults(defineProps<Props>(),{

@@ -1,4 +1,6 @@
-type dataList = {}
+type dataList = {
+  data: []
+}
 
 export const axios = (url:string):Promise<dataList[]> => {
   return new Promise((resolve) => {
@@ -8,9 +10,7 @@ export const axios = (url:string):Promise<dataList[]> => {
 
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        setTimeout(() => {
-          resolve(JSON.parse(xhr.responseText))
-        },5000)
+        resolve(JSON.parse(xhr.responseText))
       }
     }
 

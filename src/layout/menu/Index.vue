@@ -1,9 +1,9 @@
 <template>
     <div class="menu">
-        <div class="menu-item" v-for="(item,index) in routes" :key="item.path" @click="changePath(item.path)">
+        <div class="menu-item" v-for="(item,index) in routes.filter(item => item.meta?.isAuth)" :key="item.path" @click="changePath(item.path)">
              <div :class="['default',isActive(item.path)]">
                 <img :src="imgList[index]" alt="">
-                {{item.meta.title}} 
+                {{item.meta?.title}} 
             </div>
         </div>
     </div>
